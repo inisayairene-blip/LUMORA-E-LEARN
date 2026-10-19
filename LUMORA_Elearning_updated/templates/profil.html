@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block crumb %}Profil{% endblock %}
+{% block content %}
+<div class="page-intro"><span class="eyebrow">AKUNMU</span><h1>Profil belajar</h1><p class="muted">Kelola informasi dasar akun Lumora kamu.</p></div>
+<div class="profile-layout"><div class="profile-banner"><div class="profile-avatar">{{ user['name'][0]|upper }}</div><h2>{{ user['name'] }}</h2><p>{{ user['email'] }}</p><span class="member-pill">✦ Anggota Lumora</span></div><div class="panel profile-form"><h2>Informasi profil</h2><p class="muted">Perbarui nama yang ditampilkan di ruang belajar.</p><form method="post"><label>Nama lengkap</label><input name="name" value="{{ user['name'] }}" required maxlength="80"><label>Email</label><input value="{{ user['email'] }}" disabled><small class="form-hint">Email tidak dapat diubah dari mockup ini.</small><button class="btn btn-primary" type="submit">Simpan perubahan</button></form><a class="logout-link" href="{{ url_for('logout') }}">Keluar dari akun ↗</a></div></div>
+{% endblock %}

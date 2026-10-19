@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}LUMORA — Belajar Lebih Bermakna{% endblock %}
+{% block public_content %}
+<div class="landing">
+<header class="landing-nav"><a class="brand" href="{{ url_for('index') }}"><img class="brand-logo" src="{{ url_for('static', filename='images/lumora-logo.png') }}" alt="Lumora — Light Up Your Future"></a><div><a class="nav-login" href="{{ url_for('login') }}">Masuk</a><a class="btn btn-primary" href="{{ url_for('register') }}">Mulai belajar ↗</a></div></header>
+<section class="hero">
+<div class="hero-copy"><span class="eyebrow"><span class="eyebrow-dot"></span> TEMUKAN CARA BELAJAR TERBAIKMU</span><h1>Belajar hari ini,<br><em>bersinar</em> esok hari.</h1><p>Ruang belajar digital yang membantumu tumbuh, menemukan potensi, dan meraih masa depan yang kamu impikan.</p><div class="hero-buttons"><a class="btn btn-primary btn-large" href="{{ url_for('register') }}">Mulai perjalananmu <span>↗</span></a><a class="btn btn-quiet btn-large" href="{{ url_for('login') }}">Saya sudah punya akun</a></div><div class="social-proof"><div class="avatar-stack"><span>R</span><span>A</span><span>N</span><span>+</span></div><div><b>Belajar dengan lebih percaya diri</b><small>Materi, tutor, dan komunitas dalam satu tempat.</small></div></div></div>
+<div class="hero-art"><div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div><div class="sun-glow"></div><div class="book-illustration"><div class="book-left"><span class="book-line"></span><span class="book-line short"></span><span class="book-line"></span><span class="book-line tiny"></span></div><div class="book-right"><span class="spark">✦</span><span class="book-line"></span><span class="book-line short"></span><span class="book-line"></span></div></div><div class="float-card card-top"><span class="float-icon purple">✦</span><div><b>Ide baru!</b><small>Selalu ada yang bisa dipelajari</small></div></div><div class="float-card card-bottom"><span class="float-icon gold">✓</span><div><b>Progres belajarmu</b><small>Selangkah lebih maju hari ini</small></div></div><div class="art-star star-a">✧</div><div class="art-star star-b">✦</div></div>
+</section>
+<section class="landing-features"><div><span class="feature-symbol">▤</span><b>Materi terarah</b><p>Pilih bahasa yang ingin kamu kuasai.</p></div><div><span class="feature-symbol purple-text">♧</span><b>Belajar privat</b><p>Temukan pendamping belajar.</p></div><div><span class="feature-symbol gold-text">☷</span><b>Tumbuh bersama</b><p>Tanya, diskusi, dan saling bantu.</p></div></section>
+<footer class="landing-footer">© 2026 LUMORA · Belajar dengan cahaya, tumbuh tanpa batas.</footer>
+</div>
+{% endblock %}

@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Masuk — LUMORA{% endblock %}
+{% block public_content %}
+<div class="auth-page"><a class="brand auth-brand" href="{{ url_for('index') }}"><span class="brand-mark">✦</span><span>LUMORA<small>LIGHT UP YOUR FUTURE</small></span></a><div class="auth-card"><div class="auth-icon">✦</div><h1>Selamat datang kembali!</h1><p class="muted">Lanjutkan perjalanan belajarmu bersama Lumora.</p><form method="post"><label>Email</label><input type="email" name="email" placeholder="nama@email.com" required autocomplete="email"><label>Kata sandi</label><input type="password" name="password" placeholder="Masukkan kata sandi" required autocomplete="current-password"><button class="btn btn-primary full" type="submit">Masuk ke akun <span>↗</span></button></form><p class="auth-switch">Belum punya akun? <a href="{{ url_for('register') }}">Daftar sekarang</a></p></div><p class="auth-foot">Belajar dengan cahaya, tumbuh tanpa batas.</p></div>
+{% endblock %}

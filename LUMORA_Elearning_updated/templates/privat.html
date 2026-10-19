@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block crumb %}Kelas privat{% endblock %}
+{% block content %}
+<div class="page-intro"><span class="eyebrow">BELAJAR LEBIH PERSONAL</span><h1>Temukan tutor yang tepat.</h1><p class="muted">Pendamping belajar untuk membantu kamu memahami materi dengan nyaman.</p></div>
+<div class="private-banner"><div><span class="hero-label">ONE-ON-ONE LEARNING</span><h2>Belajar sesuai ritmemu.</h2><p>Pilih bidang yang ingin kamu kuasai dan mulai rencanakan sesi belajar.</p></div><div class="private-banner-icon">♧</div></div>
+<div class="section-heading"><div><h2>Rekomendasi tutor</h2><p>Pilihan tutor untuk mockup Lumora.</p></div></div><div class="tutor-grid">{% for t in tutors %}<article class="tutor-card"><div class="tutor-top"><div class="tutor-avatar {{ t.color }}">{{ t.initial }}</div><span class="available">● Tersedia</span></div><h3>{{ t.name }}</h3><p class="tutor-subject">{{ t.subject }}</p><p class="muted">{{ t.detail }}</p><button class="btn btn-outline full" onclick="alert('Fitur pemesanan tutor adalah simulasi mockup.');">Lihat jadwal ↗</button></article>{% endfor %}</div>
+<div class="note-box"><span>✦</span><p><b>Catatan:</b> Pemesanan dan jadwal tutor belum terhubung ke layanan nyata. Bagian ini merupakan simulasi tampilan.</p></div>
+{% endblock %}

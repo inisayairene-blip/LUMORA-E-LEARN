@@ -1,0 +1,5 @@
+{% extends "base.html" %}
+{% block title %}Daftar — LUMORA{% endblock %}
+{% block public_content %}
+<div class="auth-page"><a class="brand auth-brand" href="{{ url_for('index') }}"><span class="brand-mark">✦</span><span>LUMORA<small>LIGHT UP YOUR FUTURE</small></span></a><div class="auth-card"><div class="auth-icon">✧</div><h1>Buat akun Lumora</h1><p class="muted">Mulai langkah kecil menuju masa depan yang cerah.</p><form method="post"><label>Nama lengkap</label><input name="name" placeholder="Nama kamu" required maxlength="80" autocomplete="name"><label>Email</label><input type="email" name="email" placeholder="nama@email.com" required autocomplete="email"><label>Kata sandi</label><input type="password" name="password" placeholder="Minimal 8 karakter" minlength="8" required autocomplete="new-password"><button class="btn btn-primary full" type="submit">Buat akun <span>↗</span></button></form><p class="auth-switch">Sudah punya akun? <a href="{{ url_for('login') }}">Masuk</a></p></div><p class="auth-foot">Dengan mendaftar, kamu siap memulai perjalanan belajar.</p></div>
+{% endblock %}

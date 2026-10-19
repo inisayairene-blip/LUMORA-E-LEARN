@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}LUMORA — Light Up Your Future{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+{% if session.get('user_id') %}
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="{{ url_for('dashboard') }}"><img class="brand-logo" src="{{ url_for('static', filename='images/lumora-logo.png') }}" alt="Lumora — Light Up Your Future"></a>
+    <div class="side-label">MENU UTAMA</div>
+    <nav>
+      <a class="{{ 'active' if active=='dashboard' else '' }}" href="{{ url_for('dashboard') }}"><span>⌂</span> Dashboard</a>
+      <a class="{{ 'active' if active=='materi' else '' }}" href="{{ url_for('materi') }}"><span>▤</span> Materi belajar</a>
+      <a class="{{ 'active' if active=='privat' else '' }}" href="{{ url_for('privat') }}"><span>♧</span> Kelas privat</a>
+      <a class="{{ 'active' if active=='tanya' else '' }}" href="{{ url_for('tanya_jawab') }}"><span>✎</span> Tanya jawab</a>
+      <a class="{{ 'active' if active=='diskusi' else '' }}" href="{{ url_for('diskusi') }}"><span>☷</span> Ruang diskusi</a>
+    </nav>
+    <div class="sidebar-bottom"><div class="help-card"><div class="help-icon">✦</div><b>Terus bertumbuh!</b><p>Setiap langkah kecil membawamu lebih dekat ke tujuan.</p></div>
+    <a class="profile-mini" href="{{ url_for('profil') }}"><span class="avatar">{{ session.get('user_name','U')[0]|upper }}</span><span><b>{{ session.get('user_name') }}</b><small>Lihat profil</small></span><span class="dots">•••</span></a></div>
+  </aside>
+  <main class="main-area">
+    <header class="topbar"><div class="mobile-brand"><img src="{{ url_for('static', filename='images/lumora-logo.png') }}" alt="Lumora"></div><div class="crumb">Ruang belajar <span>/</span> {% block crumb %}Dashboard{% endblock %}</div><div class="top-actions"><span class="date-pill">✧ Semangat belajar!</span><a class="avatar" href="{{ url_for('profil') }}">{{ session.get('user_name','U')[0]|upper }}</a></div></header>
+    <div class="page-content">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}{% endif %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </div>
+  </main>
+</div>
+{% else %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}<div class="public-flashes">{% for category, message in messages %}<div class="flash {{ category }}">{{ message }}</div>{% endfor %}</div>{% endif %}
+{% endwith %}
+{% block public_content %}{% endblock %}
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block crumb %}Materi belajar{% endblock %}
+{% block content %}
+<div class="page-intro"><span class="eyebrow">PERPUSTAKAAN ILMU</span><h1>Temukan materi favoritmu.</h1><p class="muted">Pilih bahasa sesuai minat dan ritme belajarmu.</p></div>
+<div class="filter-row">{% for option in ['Semua','Inggris','Jepang','Korea','Mandarin','Indonesia','Arab','Prancis','Jerman'] %}<a class="filter-chip {{ 'selected' if level==option else '' }}" href="{{ url_for('materi',level=option) }}">{{ option }}</a>{% endfor %}</div>
+<div class="subject-grid">{% for s in subjects %}<article class="subject-card"><div class="subject-art {{ s.color }}"><span>{{ s.icon }}</span><small>{{ s.level }}</small></div><div class="subject-body"><span class="subject-level">{{ s.level }}</span><h3>{{ s.name }}</h3><p>{{ s.desc }}</p><a href="#" class="text-link" onclick="alert('Mockup: materi {{ s.name }} akan tersedia pada pengembangan berikutnya.'); return false;">Lihat materi <span>→</span></a></div></article>{% endfor %}</div>
+{% if not subjects %}<div class="empty-state">Belum ada materi untuk kategori ini.</div>{% endif %}
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block crumb %}Tanya jawab{% endblock %}
+{% block content %}
+<div class="page-intro"><span class="eyebrow">BELAJAR TANPA RAGU</span><h1>Ada yang ingin kamu tanyakan?</h1><p class="muted">Bagikan pertanyaan agar bisa dibahas bersama.</p></div>
+<div class="qa-layout"><section class="panel ask-panel"><h2>Ajukan pertanyaan</h2><p class="muted">Tulis pertanyaanmu dengan jelas.</p><form method="post"><label>Judul pertanyaan</label><input name="title" placeholder="Contoh: Cara memahami pecahan" required maxlength="140"><label>Detail pertanyaan</label><textarea name="body" rows="5" placeholder="Ceritakan bagian yang ingin kamu pahami..." required maxlength="2000"></textarea><button class="btn btn-primary full" type="submit">Kirim pertanyaan ↗</button></form></section><section class="question-list"><div class="list-heading"><h2>Pertanyaan terbaru</h2><span class="count-pill">{{ questions|length }} topik</span></div>{% for q in questions %}<article class="question-card"><div class="question-meta"><span class="avatar small-avatar">{{ q['user_name'][0]|upper }}</span><span><b>{{ q['user_name'] }}</b><small>{{ q['created_at'] }}</small></span></div><h3>{{ q['title'] }}</h3><p>{{ q['body'] }}</p><div class="question-footer"><span>✧ Belajar bersama</span><span>Diskusi terbuka</span></div></article>{% endfor %}</section></div>
+{% endblock %}
